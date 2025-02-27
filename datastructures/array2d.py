@@ -6,7 +6,7 @@ from datastructures.array import Array
 from datastructures.iarray2d import IArray2D, T
 from copy import copy
 
-#finished 
+#finishedarray2d
 
 class Array2D(IArray2D[T]):
 
