@@ -6,6 +6,8 @@ from datastructures.array import Array
 from datastructures.iarray2d import IArray2D, T
 from copy import copy
 
+#finished 
+
 class Array2D(IArray2D[T]):
 
     class Row(IArray2D.IRow[T]):
