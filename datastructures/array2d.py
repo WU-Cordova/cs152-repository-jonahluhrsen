@@ -49,7 +49,7 @@ class Array2D(IArray2D[T]):
         if not isinstance(starting_sequence, Sequence) or isinstance(starting_sequence, str):
             raise ValueError("starting_sequence needs to be a valid sequence type.")
         if not isinstance (starting_sequence[0], Sequence):
-            raise ValueError("This need to pass in same data types")
+            raise ValueError("This needs to pass in same data types")
         for i in range(len(starting_sequence)):
             for j in range(len(starting_sequence[i])):
                 if not isinstance(starting_sequence[i][j], data_type):
@@ -93,6 +93,11 @@ class Array2D(IArray2D[T]):
     
     def __repr__(self) -> str: 
         return f'Array2D {self.__row_len} Rows x {self.__col_len} Columns, items: {str(self)}'
+    
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Array2D) or len(self.array2d) != len(other.array2d):
+            return False
+        return self.array2d == other.array2d
 
 if __name__ == '__main__':
     filename = os.path.basename(__file__)
