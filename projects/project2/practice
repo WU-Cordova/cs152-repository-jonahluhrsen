@@ -1,0 +1,59 @@
+class Array:
+    def __init__(self, elements):
+        self.elements = elements
+
+    def __repr__(self):
+        return str(self.elements)
+
+    @staticmethod
+    def merge(array1, array2):
+        if not isinstance(array1, Array) or not isinstance(array2, Array):
+            raise TypeError("Both arguments must be Array objects")
+
+        merged = []
+        len1, len2 = len(array1.elements), len(array2.elements)
+        min_len = min(len1, len2)
+
+        for i in range(min_len):
+            merged.append(array1.elements[i])
+            merged.append(array2.elements[i])
+
+        # Append remaining elements
+        merged.extend(array1.elements[min_len:])
+        merged.extend(array2.elements[min_len:])
+
+        return Array(merged)
+    
+        def merge(Array1, Array2):
+            if not isinstance(Array1, Array) or not isinstance(Array2, Array):
+                raise TypeError("Trash")
+        
+        merged = []
+        len1, len2 = len(Array1.elements), len(Array2.elements)
+        min_len = min(len1, len2)
+
+        for i in range(min_len):
+            merged.append(Array1[i])
+            merged.append(Array2[i])
+
+        merged.extend(Array1.elements[min_len:])
+        merged.extend(Array2.elements[min_len:])
+
+        return Array(merged)
+
+class Array:
+        
+        @staticmethod
+        def merge(Array1, Array2):
+            if not isinstance(Array1, Array) or not isinstance(Array2, Array)
+                raise TypeError("L")
+
+        merged = []
+        len1, len2 = len(Array1.elements), len(Array2.elements)
+        min_len = min(len1, len2)
+
+        for i in range(min_len):
+            merged.append(Array1[i])
+            merged.append(Array2[i])
+
+        return Array(merged)
