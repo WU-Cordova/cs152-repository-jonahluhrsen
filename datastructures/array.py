@@ -20,8 +20,9 @@ class Array(IArray[T]):
             raise ValueError("starting_sequence must be a valid sequence type.")
         if not isinstance(data_type, type):
             raise TypeError("data_type must be a valid type.")
-        if not isinstance (starting_sequence[0], data_type):
+        if len(starting_sequence) > 0 and not isinstance(starting_sequence[0], data_type):
             raise TypeError("Need to pass in same data types")
+
         self.__elements = np.array(starting_sequence, dtype= data_type)
         self.__logical = len(starting_sequence)
         self.__physical = len(self.__elements)
@@ -31,12 +32,22 @@ class Array(IArray[T]):
             if  not isinstance(index, slice) and not isinstance(index, int):
                 raise TypeError("Needs to be int or slice")
             if isinstance(index, slice):
+
                 start, stop = index.start, index.stop
+
+                if start is None:
+                    start = 0
+                if stop is None:
+                    stop = self.__logical - 1
                 if start >= self.__logical or stop > self.__logical:
                     raise IndexError('Not in Bounds')
+                items = []
+                for item in range(len(self.__elements)):
+                    items.append(item if not isinstance(item, np.generic) else item.item())
                 items_to_return = self.__elements[index].tolist()
-                return Array(starting_sequence= items_to_return, data_type = self.__data_type) 
-            return self.__elements[index]
+                return Array(starting_sequence= items_to_return, data_type = self.__data_type)
+            return self.__elements[index] if not isinstance(self.__elements[index], np.generic) else self.__elements[index].item()
+
     
     def __setitem__(self, index: int, item: T) -> None:
         if type(item) != self.__data_type:
