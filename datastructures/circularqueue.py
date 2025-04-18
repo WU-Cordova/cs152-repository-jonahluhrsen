@@ -51,13 +51,8 @@ class CircularQueue(IQueue[T]):
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, CircularQueue):
             return False
-
-        if len(self) != len(other):
-            return False
-        for i in range(len(self)):
-            self_item = self.circularqueue[(self._front + i) % len(self.circularqueue)]
-            other_item = other.circularqueue[(other._front + i) % len(other.circularqueue)]
-            if self_item != other_item:
+        for item in range(len(self)):
+            if self.circularqueue[(self._front + item) % len(self)] != other.circularqueue[(other._front + item) % len(other)]:
                 return False
         return True
 

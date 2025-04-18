@@ -50,7 +50,7 @@ class Array(IArray[T]):
 
     
     def __setitem__(self, index: int, item: T) -> None:
-        if type(item) != self.__data_type:
+        if not isinstance(item, self.__data_type):
             raise TypeError("Item you're setting isn't the same type as the array")
         if index > self.__logical:
             raise IndexError("Index is out of bounds")

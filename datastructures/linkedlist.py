@@ -39,14 +39,17 @@ class LinkedList[T](ILinkedList[T]):
         self.count += 1
 
     def prepend(self, item: T) -> None:
-       if type(item) != self.data_type:
+        if type(item) != self.data_type:
             raise TypeError("Data is the wrong type")
-       new_node = LinkedList.Node(data = item)
-       new_node.next = self.head
-       if self.head:
-           self.head.previous = new_node
-       self.head = new_node
-       self.count += 1
+        new_node = LinkedList.Node(data = item)
+        if self.empty:
+            self.head = self.tail = new_node
+        else:
+            new_node.next = self.head
+            if self.head:
+                self.head.previous = new_node
+            self.head = new_node
+        self.count += 1
 
     def insert_before(self, target: T, item: T) -> None:
         if not isinstance(target, self.data_type) or not isinstance(item, self.data_type):
