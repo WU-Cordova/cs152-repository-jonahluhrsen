@@ -29,9 +29,7 @@ def main():
         elif choice == '3':
             order_queue.view_open_orders()
         elif choice == '4':
-            completed = order_queue.complete_order()
-            if completed:
-                print(f"Completed order for {completed.name}.")
+            order_queue.complete_order()
         elif choice == '5':
             order_queue.end_of_day_report()
         elif choice == '6':

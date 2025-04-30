@@ -12,7 +12,7 @@ class Customer_Order:
         # print y / n ? for if they want to customize
         # if y then ask for name of what they want changed
         customize = input('Do you want to customize your drink? (Y)es or (N)o')
-        if customize == 'Y':
+        if customize.upper() == 'Y':
             customization_description = input('Please type customization request ')
             drink.customization = customization_description
         self._order.append(drink)
