@@ -1,7 +1,6 @@
 from projects.project3.Menu import Menu
 from projects.project3.Customer_Order import Customer_Order
 from projects.project3.Order_Queue import Order_Queue
-# from projects.project
 
 def main():
     order_queue = Order_Queue()
@@ -11,11 +10,9 @@ def main():
         print("2. Take New Order")
         print("3. View Open Orders")
         print("4. Mark Next Order as Complete")
-        print("5. End-of-Day Report")
+        print("5. End of Day Report")
         print("6. Exit")
-
         choice = input("Choose an option (1-6): ")
-
         if choice == '1':
             Menu().print_menu()
         elif choice == '2':
@@ -37,7 +34,6 @@ def main():
             break
         else:
             print("Invalid option.")
-
     
 if __name__ == '__main__':
     main()

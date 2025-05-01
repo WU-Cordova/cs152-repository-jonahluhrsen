@@ -21,17 +21,13 @@ class Order_Queue:
         if self.queue._list.empty:
             print("No open orders.")
             return
-
         print("\nOpen Orders:")
-        temp_queue = Deque(data_type=Customer_Order)  # temp to preserve order
-
+        temp_queue = Deque(data_type=Customer_Order)
         while not self.queue._list.empty:
             order = self.queue.dequeue()
             print(f"- {order.name}:")
             order.repeat_order()
             temp_queue.enqueue(order)
-
-        # Restore original queue
         while not temp_queue._list.empty:
             self.queue.enqueue(temp_queue.dequeue())
 
@@ -40,13 +36,12 @@ class Order_Queue:
         total_revenue = 0.0
         while not self._complete_queue.empty:
             order = self._complete_queue.pop()
-            for drink in order._order:  # Access the linked list directly
+            for drink in order._order:
                 name = drink.name
                 drink_summary[name] = drink_summary.get(name, {'count': 0, 'revenue': 0.0})
                 drink_summary[name]['count'] += 1
                 drink_summary[name]['revenue'] += drink.price
                 total_revenue += drink.price
-
         print("\nEnd-of-Day Report:")
         for drink, stats in drink_summary.items():
             print(f"{drink}: {stats['count']} sold, ${stats['revenue']:.2f}")

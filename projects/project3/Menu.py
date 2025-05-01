@@ -4,11 +4,11 @@ class Menu:
 
     def __init__(self):
         self._menu = []
-        self._menu.append(Drink(name= 'Hot Cocoa', price= 4.00, size= 'Medium'))
-        self._menu.append(Drink(name= 'Americano', price= 4.25, size= 'Medium'))
-        self._menu.append(Drink(name= 'Latte', price= 5.00, size= 'Medium'))
-        self._menu.append(Drink(name= 'Lemonade', price= 4.00, size= 'Medium'))
-        self._menu.append(Drink(name= 'Iced Coffee', price= 3.50, size= 'Medium'))
+        self._menu.append(Drink(name= 'Hot Chocolate', price= 4.00, size= 'Medium'))
+        self._menu.append(Drink(name= 'Hot Coffee', price= 4.50, size= 'Medium'))
+        self._menu.append(Drink(name= 'Iced Coffee', price= 4.50, size= 'Medium'))
+        self._menu.append(Drink(name= 'Lemonade', price= 3.25, size= 'Medium'))
+        self._menu.append(Drink(name= 'Iced Tea', price= 3.25, size= 'Medium'))
 
     def print_menu(self):
         print("\nAvailable Drinks:")
